@@ -1,0 +1,10 @@
+We will assume for this bubble sort algorithm, we are trying to get the data sorted from lowest to highest value.
+
+- Save value and the index of the first element (i = 0)
+- Loop (from the first element, one place at a time (i), until the last element)
+	- Loop (from current index (i) to last using j)
+		- If j-th value is less than saved minimum, save its location and value locally
+	- After inner loop is complete:
+		- If the global minimum is less than or equal to the local, continue to the next iteration of the outer loop;
+		- If the searched minimum is less than the initial minimum, swap the ith and jth locations
+			- Swap by saving ith to a temp, jth to ith, and temp to jth

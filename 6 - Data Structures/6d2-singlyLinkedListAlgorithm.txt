@@ -1,0 +1,94 @@
+For linked lists, there is no defined order as a whole (although you could put them in order, e.g. numerical, alphabetical).  
+
+In a singly-linked list, each node/entry in the list points to the next one until there are none left.  For the sake of demonstrations, we will explore the functions using a numerically sorted list of books with library IDs (see below);
+
+// using the class book_c from previous examples
+class book_c{
+		protected:
+			book_c *next; // will point to the next one
+			std::string section; 
+			std::string author;
+			std::string title;
+			int libraryBarCode;
+			bool checkedOut;
+		private:
+			// all get/set/constructors/destructors/print
+		}
+};
+
+// We need a head pointer that points to the top/front of the list
+book_c *Head; 
+
+-------------------------- Algorithms --------------------------
+
+- Print:
+	- create a temporary pointer to point to the first element
+	- inside a loop:
+		- print that element's variables (locally or through the class print function)
+		- move pointer to the next element 
+		- if there is no element, exit the function
+
+- Search (for matching author/title/section/barcode/etc.; each would need its own comparison):
+	- create a temporary pointer to point to the first element
+	- inside a loop:
+		- compare some input (e.g. user) to the element's variable
+		- if it matches:
+			- print that element's variables (locally or through the class print function)
+			- exit the function (unless you can have more than match in the list, in which case, continue)
+		- move pointer to the next element 
+		- if there is no element, exit the function
+	- if the loop completes and no match is found, warn/tell the user/program no match was found
+
+- Delete everything:
+	- create a temporary pointer that points to the head (first element)
+	- create a pointer that points to the second element
+	- while the first element is still non-zero:
+		- delete first element
+		- move first element to point to the same place as the second
+		- if there is an element after second
+			- move second to the next element
+
+- Add a new entry (this will be in numerical order by the libraryBarCode, but could also be done in any order with any variable):
+	- make a new entry (using new) and save the pointer to a temporary place (newEntry)
+	- fill newEntry's data/variables
+
+	- If the list is empty (Head == NULL)
+		- set Head equal to the new entry
+		- set newEntry's next to NULL
+
+	- else if the input code goes before the first element (userInput < Head->libraryBarCode)
+		- set the newEntry's next pointer to the current Head
+		- set Head to the newEntry
+
+	- else (it is in the middle or at the end)
+		- create a loop; set a temporary pointer to the first element (temp = HEAD)
+			- if the user input fits goes before the next element (we know it doesn't go before, since we would have checked already to get to this point)
+				- newEntry's next should be equal to temp's next 
+				- reset temp's next to be the newEntry
+				- exit the function so you don't add more than once
+			- move temp to the next (temp = temp->next) 
+			- repeat while temp isn't 0/NULL
+
+- Remove an existing entry (comparing for matching author/title/section/barcode/etc.; each would need its own comparison):
+	- if the list is empty, do nothing
+	- else if the comparison of the input matches the Head node's variable
+		- create a temporary pointer to point to the first element
+		- Set Head to 2nd element (Head = Head->next)
+		- delete the temporary pointer
+		(if you only have one match possible, exit; otherwise, you can keep going)
+	- inside a loop, create a temporary pointer to point to the first element:
+		- compare the user input to the NEXT element, not the temporary one
+		- if the user input matches temp->next's variables
+			- create another temporary pointer (we'll call it deleteThis) to point to temp->next
+			- reset temp's next pointer to temp's next's next (temp->next = temp->next->next)
+			- delete the "deleteThis" pointer that is holding the one that matched
+			- exit the function (unless you can have more than match in the list, in which case, continue)
+		- move pointer to the next element 
+		- if there is no element, exit the function
+	- if the loop completes and no match is found, warn/tell the user/program no match was found
+
+
+
+
+
+

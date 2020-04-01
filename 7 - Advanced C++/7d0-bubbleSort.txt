@@ -1,0 +1,8 @@
+We will assume for this bubble sort algorithm, we are trying to get the data sorted from lowest to highest value.
+
+- Loop (until data are are not in order)
+	- Loop (start at first element, move one place per iteration (i), stop when at the last element)
+		- If the element at i is greater than i+1
+			- Swap
+		- Else, continue to the next iteration
+		- If no swapping has occurred, the data are in order

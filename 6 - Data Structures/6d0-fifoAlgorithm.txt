@@ -1,0 +1,30 @@
+For a FIFO, data is read in the same order it was written.  Reading is also "destructive," meaning once it is read, the entry no longer exists in the data structure.
+
+For example:
+	Operation		---------- 		Contents (oldest on the right, newest on the left)
+	1) Write "A"  	----------   	A
+	2) Write "B"  	----------		BA
+	3) Write "C"  	----------		CBA
+	4) Write "D"  	----------		DCBA
+	5) Read 		----------		DCB   	(A is read and destroyed)
+	6) Read 		----------		DC   	(B is read and destroyed)
+	7) Write "E" 	----------		EDC		
+	8) Read 		---------- 		ED 		(C is read and destroyed)
+
+
+So to develop the algorithm:
+
+Reading:
+	- If the FIFO is empty
+		- Do nothing.
+	- Else
+		- Read oldest value
+		- Now the previously 2nd-oldest value is the new oldest value
+
+Writing:
+	- If the FIFO is empty
+		- The new entry is the oldest and newest simultaneously
+	- If the FIFO has a size limit and is full
+		- No room, deny writing
+	- If FIFO has entries but is not full
+		- New entry is written to the "new" side

@@ -1,0 +1,30 @@
+/*****
+For this course, we will only focus on two search algorithms.  They are each generic and don't necessarily apply directly to data structures as we have learned.  We will use them as general structures that have random access capabilities (can read/write/search starting at any place in the data).
+
+First, the algorithm for a linear search (in pseudocode). A linear search starts at the first (or last) element and moves one at a time.  It has O(n), because if we add n more entries, on average, we have to search n more entries to find our match.  The data can be sorted or unsorted.
+*****/
+
+Assume we are starting with an array or structure of n entries, as well as a search parameter.
+
+- Loop (starting from the first element, one element per iteration, stop when out of elements)
+	- Compare the search parameter to the element's variable
+	- If a match, print/count/return the match
+	- If not, continue to the next element
+- If never found, return/print that it wasn't found
+
+/*****
+Next, a binary search (in pseudocode). The data must be sorted to do a binary search.   It has an O(log2 n), because adding twice as many entries only increases our search iterations by 1.
+*****/
+
+Assume we are starting with an array or structure of n entries, as well as a search parameter.  We will assume rounding down if there are odd numbers of entries in a group
+
+- Loop
+	- Go to the middle entry (n/2)
+	- Compare the search parameter to the middle entry's value
+	- If a match, print/count/return the match
+	- Else if the search parameter is less than the middle value
+		- Find the middle value between the currently searched element and the beginning
+	- Else if the search parameter is greater than the middle value
+		- Find the middle value between the currently searched element and the end
+	- Now working from this new middle and new end points (ends of the data that haven't already been searched), REPEAT
+- If never found, return/print that it wasn't found

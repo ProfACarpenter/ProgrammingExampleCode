@@ -1,0 +1,30 @@
+Below is an algorithmic description (in pseudocode) for calculating a grade:
+
+There are 5 components to the grade: 1 midterm exam, 1 final exam, 10 labs, 10 written homeworks, and attendance
+To calculate, each is taken by a user to calculate the score and the grade, given a scale
+
+- Ask the user for each of the grades and save them in a variable (midterm, final, labs, homeworks, attendance)
+- Calculate the final score given the equation 
+--> final score = 0.25*midterm + 0.25*final + 0.25*labs + 0.15*homeworks + 0.10*attendance
+
+- Tell the user what the numerical score is
+- If the score is between 0 and 59
+	- Final grade is F
+- If not, and if the score is between 60 and 69
+	- Final grade is D
+- If not, and if the score is between 70 and 79
+	- Final grade is C
+- If not, and if the score is between 80 and 89
+	- Final grade is B
+- If not, and if the score is between 90 and 100
+	- Final grade is A
+- Tell the user the final grade
+-----------------------------
+
+Example run:
+User puts in midterm = 70, final = 85, labs = 95, hw = 100, attendance = 90
+Final score = 0.25*70 + 0.25*85 + 0.25*95 + 0.15*100 + 0.10*90 = 86.5
+As 86.5 is not between 0 and 59, 60 and 69, or 70 and 79, the algorithm skips those
+As it is between 80 and 89, the final grade is B
+
+

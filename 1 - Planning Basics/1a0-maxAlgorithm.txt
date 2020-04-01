@@ -1,0 +1,34 @@
+Below is an algorithmic description (in pseudocode) for finding the highest number in a list
+- Create a space (we will call it "highestNumber") and save the first element on the list
+- Starting at the 2nd element
+	- Compare the highestNumber to the current element
+	- If the current element is higher than the highestNumber
+		- replace highestNumber with the current element's value
+	- If not
+		- Do nothing
+	- Move to the next element until there are no elements left
+- When all elements have been checked, you have the highest number
+-----------------------------
+Example:  List of 8 elements: 10 4 2 -1 15 6 20 0  
+First highestNumber (* symbol) is 10
+Start at the second number for temporary comparison (! symbol)
+Then compare 10 and 4.  Since 4 is lower, just move to the next element
+	 * !
+	10 4 2 -1 15 6 20 0 
+Repeat
+ 	 *   !
+	10 4 2 -1 15 6 20 0 
+ 	 *      !
+	10 4 2 -1 15 6 20 0 
+When comparing 15, it is higher, so that is the newest "highestElement"
+ 	          *
+	10 4 2 -1 15 6 20 0 
+ 	 		   * !
+	10 4 2 -1 15 6 20 0 
+When comparing 20, it is higher, so that is the newest "highestElement"
+ 	          	    *
+	10 4 2 -1 15 6 20 0 
+ 	          		* !
+	10 4 2 -1 15 6 20 0 
+Now that we reached the end, we know 20 is the highest.  
+
